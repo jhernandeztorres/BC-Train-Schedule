@@ -5,13 +5,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Firebase CDN -->
-    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
-    <!-- Firebase Database CDN -->
-    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-database.js"></script>
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="./assets/css/reset.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Bootcamp Train Schedule</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron bg-secondary text-white">
+            <h1 class="text-center" id="heading">FireFly Class Station</h1>
+            <h2 class="text-center" id="subHeading">"We are just too pretty for God to let us die."</h2>
+            <p class="float-right" id="currentTime"></p>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-9">
+                <div class="card">
+                    <div class="card-header bg-secondary">
+                        <h3 class="panel-title ">Train Schedule</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-hover" id="train-table">
+                            <thead>
+                                <tr>
+                                    <th>Train Name</th>
+                                    <th>Destination</th>
+                                    <th class="text-center">Frequency</th>
+                                    <th class="text-center">Next Arrival</th>
+                                    <th class="text-center">Minutes Away</th>
+                                    <th class="text-center">Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody id="train-table-rows">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-3">
+                <div class="card">
+                    <div class="card-header bg-secondary">
+                        <h3 class="panel-title">Add New Train</h3>
+                        <div>
+                            <div class="panel-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label>Train Name</label>
+                                        <input type="text" class="form-control form-field" id="train-name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Destination</label>
+                                        <input type="text" class="form-control form-field" id="destination">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>First Train Time: HH:mm - military time</label>
+                                        <input type="text" class="form-control form-field" id="first-train">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Frequency (min)</label>
+                                        <input type="text" class="form-control form-field" id="frequency">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-default" id="submit">Add Train</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase Database Initialization -->
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
+    <!-- Moment.JS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js" integrity="sha256-1hjUhpc44NwiNg8OwMu2QzJXhD8kcj+sJA3aCQZoUjg=" crossorigin="anonymous"></script>
     <!-- Bootstrap JS and JQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -21,13 +95,6 @@
         crossorigin="anonymous"></script>
     <!-- Custom JS -->
     <script rel="text/javacsript" src="./assets/js/app.js"></script>
-    <!-- Moment.JS CDN -->
-    <link rel="text/javacsript" href="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/af.js">
-    <title>Bootcamp Traing Schedule</title>
-</head>
-
-<body>
-
 </body>
 
 </html>
