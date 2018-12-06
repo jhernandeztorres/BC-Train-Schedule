@@ -24,15 +24,15 @@
   };
 
   $(".form-field").on("keyup", function () {
-      var traintemp = $("#train-name").val().trim();
-      var citytemp = $("#destination").val().trim();
-      var timetemp = $("#first-train").val().trim();
-      var freqtemp = $("#frequency").val().trim();
+      var trainTemp = $("#train-name").val().trim();
+      var cityTemp = $("#destination").val().trim();
+      var timeTemp = $("#first-train").val().trim();
+      var freqTemp = $("#frequency").val().trim();
 
-      sessionStorage.setItem("train", traintemp);
-      sessionStorage.setItem("city", citytemp);
-      sessionStorage.setItem("time", timetemp);
-      sessionStorage.setItem("freq", freqtemp);
+      sessionStorage.setItem("train", trainTemp);
+      sessionStorage.setItem("city", cityTemp);
+      sessionStorage.setItem("time", timeTemp);
+      sessionStorage.setItem("freq", freqTemp);
   });
 
   $("#train-name").val(sessionStorage.getItem("train"));
@@ -80,25 +80,25 @@
       var nextTrain = moment().add(minToArrival, "minutes");
       var key = childSnapshot.key;
 
-      var newrow = $("<tr>");
-      newrow.append($("<td>" + childSnapshot.val().trainName + "</td>"));
-      newrow.append($("<td>" + childSnapshot.val().destination + "</td>"));
-      newrow.append($("<td class='text-center'>" + childSnapshot.val().frequency + "</td>"));
-      newrow.append($("<td class='text-center'>" + moment(nextTrain).format("LT") + "</td>"));
-      newrow.append($("<td class='text-center'>" + minToArrival + "</td>"));
-      newrow.append($("<td class='text-center'><button class='arrival btn btn-danger btn-xs' data-key='" + key + "'>X</button></td>"));
+      var newRow = $("<tr>");
+      newRow.append($("<td class='text-center text-capitalize align-middle'>" + childSnapshot.val().trainName + "</td>"));
+      newRow.append($("<td class='text-center text-capitalize align-middle'>" + childSnapshot.val().destination + "</td>"));
+      newRow.append($("<td class='text-center align-middle'>" + childSnapshot.val().frequency + "</td>"));
+      newRow.append($("<td class='text-center align-middle'>" + moment(nextTrain).format("LT") + "</td>"));
+      newRow.append($("<td class='text-center align-middle'>" + minToArrival + "</td>"));
+      newRow.append($("<td class='text-center align-middle'><button class='arrival btn btn-danger btn-xs' data-key='" + key + "'><i class='fas fa-trash-alt'></i></button></td>"));
 
       if (minToArrival < 6) {
-          newrow.addClass("info");
+          newRow.addClass("info");
       }
 
-      $("#train-table-rows").append(newrow);
+      $("#train-table-rows").append(newRow);
 
   });
 
   $(document).on("click", ".arrival", function () {
-      keyref = $(this).attr("data-key");
-      database.ref().child(keyref).remove();
+      keyRef = $(this).attr("data-key");
+      database.ref().child(keyRef).remove();
       window.location.reload();
   });
 
@@ -106,4 +106,4 @@
 
   setInterval(function () {
       window.location.reload();
-  }, 60000);
+  }, 50000);

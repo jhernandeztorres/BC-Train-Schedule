@@ -1,8 +1,9 @@
-/* body {
-    background-image: url(../images/adam-bixby-562004-unsplash.jpg);
-    background-size: auto;
-  } */
-  
+body {
+    background-image: url(../images/antoine-beauvillain-759-unsplash.jpg);
+    background-size: cover;
+    line-height: 0;
+  }
+
   #heading {
     font-family: Times;
     font-weight: bold;
@@ -13,10 +14,18 @@
     font-style: italic;
   }
   
-  .panel-title {
+  .table-title {
     font-weight: bold;
   }
   
   th {
     font-weight: bold;
+  }
+
+  h3, label {
+    color: white;
+  }
+
+  .btn-default:hover {
+    background-color: green;
   }
