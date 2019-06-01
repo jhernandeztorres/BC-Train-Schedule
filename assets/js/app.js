@@ -26,7 +26,7 @@
   $(".form-field").on("keyup", function () {
       var trainTemp = $("#train-name").val().trim();
       var cityTemp = $("#destination").val().trim();
-      var timeTemp = $("#first-train").val().trim();
+      var timeTemp = moment($("#first-train").val().trim(), "HH:mm");
       var freqTemp = $("#frequency").val().trim();
 
       sessionStorage.setItem("train", trainTemp);
